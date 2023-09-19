@@ -10,7 +10,7 @@ import {
   deleteJob,
   showStats,
 } from '../controllers/jobController.js';
-import { checkForTestUser } from '../middleware/authmiddleware.js';
+import { checkForTestUser } from '../middleware/authMiddleware.js';
 
 // router.get('/', getAllJobs);
 // router.post('/', createJob);

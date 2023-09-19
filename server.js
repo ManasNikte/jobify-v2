@@ -17,7 +17,7 @@ import { fileURLToPath } from 'url';
 import path from 'path';
 // middleware
 import errorHandlerMiddleware from './middleware/errorHandlerMiddleware.js';
-import { authenticateUser } from './middleware/authmiddleware.js';
+import { authenticateUser } from './middleware/authMiddleware.js';
 
 cloudinary.config({
   cloud_name: process.env.CLOUD_NAME,

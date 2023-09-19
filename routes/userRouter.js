@@ -6,7 +6,7 @@ import {
   updateUser,
 } from '../controllers/userController.js';
 import { validateUpdateUserInput } from '../middleware/validationMiddleware.js';
-import { authorizePermissions, checkForTestUser } from '../middleware/authmiddleware.js';
+import { authorizePermissions, checkForTestUser } from '../middleware/authMiddleware.js';
 import upload from '../middleware/multerMiddleware.js';
 
 router.get('/current-user', getCurrentUser);

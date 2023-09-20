@@ -6,23 +6,20 @@ import { toast } from 'react-toastify';
 
 const errors = { msg: '' };
 
-export const action = async ({ request }) => {
-  const formData = await request.formData();
-  const data = Object.fromEntries(formData);
-  
-  if (data.password.length < 3) {
-    errors.msg = 'password too short';
-    return errors;
-  }
-  try {
-    await customFetch.post('/auth/login', data);
-    toast.success('Login successful');
-    return redirect('/dashboard');
-  } catch (error) {
-    // toast.error(error?.response?.data?.msg);
-    errors.msg = error.response.data.msg;
-    return errors;
-  }
+export const action =
+  (queryClient) =>
+  async ({ request }) => {
+    const formData = await request.formData();
+    const data = Object.fromEntries(formData);
+    try {
+      await axios.post('/api/v1/auth/login', data);
+      queryClient.invalidateQueries();
+      toast.success('Login successful');
+      return redirect('/dashboard');
+    } catch (error) {
+      toast.error(error.response.data.msg);
+      return error;
+    }
 };
 
 const Login = () => {

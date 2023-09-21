@@ -94,7 +94,7 @@ const router = createBrowserRouter([
           },
           { 
             path: 'delete-job/:id', 
-            action: deleteJobAction,
+            action: deleteJobAction(queryClient),
           },
         ],
         },

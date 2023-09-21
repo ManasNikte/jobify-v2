@@ -39,9 +39,9 @@ const SearchContainer = () => {
             type='search'
             name='search'
             defaultValue={search}
-            onChange={(e) => {
-              submit(e.currentTarget.form);
-            }}
+            onChange={debounce((form) => {
+              submit(form);
+            })}
           />
           <FormRowSelect
             labelText='job status'

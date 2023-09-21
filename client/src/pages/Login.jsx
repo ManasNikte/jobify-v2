@@ -12,7 +12,7 @@ export const action =
     const formData = await request.formData();
     const data = Object.fromEntries(formData);
     try {
-      await axios.post('/api/v1/auth/login', data);
+      await customFetch.post('/auth/login', data);
       queryClient.invalidateQueries();
       toast.success('Login successful');
       return redirect('/dashboard');
